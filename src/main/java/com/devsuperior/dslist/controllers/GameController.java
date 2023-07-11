@@ -11,7 +11,7 @@ import com.devsuperior.dslist.Services.GameService;
 import com.devsuperior.dslist.dto.GameMinDTO;
 
 /*
-Annotation 'RestController' 
+Annotation 'RestController'.
 definindo classe 'GameController' como um controlador 
 */
 @RestController
