@@ -10,6 +10,7 @@ import com.devsuperior.dslist.Repositories.GameRepository;
 import com.devsuperior.dslist.dto.GameDTO;
 import com.devsuperior.dslist.dto.GameMinDTO;
 import com.devsuperior.dslist.entities.Game;
+import com.devsuperior.dslist.projections.GameMinProjection;
 
 /*
  Annotation "@Service" ira registrar a classe 'GameSerivce' com um COMPONENTE do sistema 
@@ -32,10 +33,20 @@ public class GameService {
 
     //Funçao que ira retornar uma lista de 'Game MinDTO'
     @Transactional(readOnly = true)
-    public List<GameMinDTO> findall(){
+     public List<GameMinDTO> findall(){
      List<Game> result = gameRepository.findAll();
      List<GameMinDTO> dto = result.stream().map(x -> new GameMinDTO(x)).toList();
      return dto;
    
     }
+
+     @Transactional(readOnly = true)
+     public List<GameMinDTO> findbyList(Long listId){
+     List<GameMinProjection> result = gameRepository.searchByList(listId);
+     List<GameMinDTO> dto = result.stream().map(x -> new GameMinDTO(x)).toList();
+     return dto;
+   
+    }
+
+
 }
