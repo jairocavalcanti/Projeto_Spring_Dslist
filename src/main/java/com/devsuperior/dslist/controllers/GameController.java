@@ -33,7 +33,7 @@ public class GameController {
         GameDTO result = gameService.findById(id);
         return result;
     }
-
+ 
     @GetMapping
     public List<GameMinDTO> findall(){
        List<GameMinDTO> result = gameService.findall();
